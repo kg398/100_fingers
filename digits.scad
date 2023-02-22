@@ -1,4 +1,4 @@
-include <primitives_v2.scad>
+include <primitives.scad>
 
 //bone_lengths = [50,40,35,25];
 //joint_diams = [12,10,8];

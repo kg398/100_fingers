@@ -1,4 +1,4 @@
-include <digits_v2.scad>
+include <digits.scad>
 include <parameters.scad>
 
 //----------------------Finger----------------------//
