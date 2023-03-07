@@ -20,7 +20,7 @@ bl_middle = [60,40,22,22];
 //Middle joint diameters
 jd_middle = [10,8,6];
 //Middle relative origin
-ro_middle = [0,-3,-15];
+ro_middle = [0,-2,-15];
 //Middle relative angle
 ra_middle = [0,5,0];
 
@@ -40,7 +40,7 @@ bl_little = [47,33,18,18];
 //Little joint diameters
 jd_little = [8,6.5,5];
 //Little relative origin
-ro_little = [0,2,-45];
+ro_little = [0,3,-45];
 //Little relative angle
 ra_little = [0,25,0];
 
