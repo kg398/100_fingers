@@ -8,7 +8,7 @@ carp = 4;
 $fs = 0.5;  // Don't generate smaller facets than 0.1 mm
 $fa = 5;    // Don't generate larger angles than 3 degrees
 
-//bone(30,10,bone_type=meta,joint_type=2,en=hq);
+//bone(55,9,9,10,bone_type=dist,joint_type=0,lig_ang=0);
 
 //quarter_pipe(10,5,true,true);
 //inverted quarter cylinder for bone fillets
@@ -45,7 +45,22 @@ module quarter_cylinder(h, r, center=false){
         }         
 }
 
-//pulley(5,1,1.8);
+//chamfer(2);
+//cylinder plus cone for cutting tendon anchor chamfers
+//h -> cylinder height
+//r -> cone radius
+module chamfer(r, h=5){
+//    union(){
+//        cylinder(r,r,0);
+//        translate([0,0,-h])
+//            cylinder(h,r,r);
+//    }
+    translate([0,0,-h])
+        rotate_extrude()
+            polygon(points=[[0,0],[0,h+r],[r,h],[r,0]]);
+}
+
+//pulley(5,1,1.5);
 //pulley for tendon
 //l -> length of pulley
 //h -> internal height
@@ -107,7 +122,7 @@ module tendon(l, t, w, r=2, center=false){
 }
 
 
-//bone(40,12,9,10,bone_type=dist,joint_type=0,lig_ang=0);
+//bone(12.59560667,12.37937763,12.37937763,12.37937763,bone_type=carp,joint_type=0,lig_ang=0);
 //multi-bone module
 //l -> length of tendon
 //d1 -> proximal diameter
@@ -121,15 +136,17 @@ module tendon(l, t, w, r=2, center=false){
 //t1 -> tendon parameters deprecated
 //nail_type -> unused
 //en -> deprecated enable fillets (false for faster rendering)
-module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pulley_type=0, tendon_type=1, tl=[100,100], nail_type=0, en=false, center=true, lw=2.0, lt=0.6, pl=5, pt=1.5, pr=1, of=true){
+module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pulley_type=0, tendon_type=1, tl=[100,100], nail_type=0, en=false, center=true, lw=2.5, lt=0.6, pl=5, pt=1.5, pr=1, of=false){
 //    lw=1.6;//default ligament width
 //    lt=0.6;//default ligament thickness
 //    pl=5;//default pulley length
 //    pt=1.8;//default pulley thickness
 //    pr=0.75;//default pulley radius
 //    of=true;//enable outer pulley fillet
+    f1=0.5*1;
+    f2=0.5*0.5;
     translate([0,0,center ? 0 : w/2])
-    //metacarpal
+    //------------------------------metacarpal------------------------------//
     if(bone_type==0){
         union(){
             //bone
@@ -150,7 +167,7 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
             //pulleys
             if(pulley_type==0){
                 //flex
-                translate([0.8*l-d2/2-1.5*pl,d2,0]) rotate([0,0,0])
+                translate([l-(0.5+f1)*d2-1.5*pl,d2,0]) rotate([0,0,0])
                     pulley(1.5*pl,1.5*pr,pt,o_fillet=of,t_fillet=true);
                 //abd1
                 translate([l-d2/2+pr-pl,d2/2,w/2]) rotate([90,0,0])
@@ -165,26 +182,26 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                 }
             }
         }
-    //proximal
+    //------------------------------proximal------------------------------//
     }else if(bone_type==1){
         union(){
             //bone
             difference(){
                 union(){
-                    if(joint_type==0){
+                    if(joint_type==0||joint_type==1){
                         polyhedron(points=[[d1/2,0,-w/2],[d1/2,0,w/2],[d1/2,d1,-w/2],[d1/2,d1,w/2],[l-d2/2,0,-w/2],[l-d2/2,0,w/2],[l-d2/2,d2,-w/2],[l-d2/2,d2,w/2]],faces=[[0,2,3,1],[0,1,5,4],[4,5,7,6],[2,6,7,3],[0,4,6,2],[1,3,7,5]]);
                         translate([d1/2,d1/2,-w/2])
                             cylinder(w,d1/2,d1/2);
-                        translate([l-d2/2-0.1,0,-(w-2*lw-0.2)/2])
-                            cube([d2/2+0.1,d2/2,w-2*lw-0.2]);
+                        translate([l-d2/2-0.1,0,-(w-2*lw-0.4)/2])
+                            cube([d2/2+0.1,d2/2,w-2*lw-0.4]);
                         translate([l-d2/2,d2/2,-w/2])
                             cylinder(w,d2/2,d2/2);
                     }
                 }
-                translate([d1/2+pl,2,2-w/2]) rotate([0,90,0]) rotate([0,0,270])
-                            quarter_pipe(l-(d1+d2)/2-2*pl,2,ext=true);
-                translate([d1/2+pl,2,w/2-2]) rotate([0,90,0]) rotate([0,0,180])
-                            quarter_pipe(l-(d1+d2)/2-2*pl,2,ext=true);
+                translate([d1/2+pl,w/2-1,-1]) rotate([0,90,0]) rotate([0,0,270])
+                            quarter_pipe(l-(d1+d2)/2-2*pl,w/2-1,ext=true);
+                translate([d1/2+pl,w/2-1,1]) rotate([0,90,0]) rotate([0,0,180])
+                            quarter_pipe(l-(d1+d2)/2-2*pl,w/2-1,ext=true);
                 if(joint_type==0){
                     translate([w/2-1,d1,-1]) rotate([90,180,0])
                         quarter_pipe(d1,w/2-1,ext=true);
@@ -203,8 +220,8 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
             //pulleys
             if(pulley_type==0){
                 //flex
-                translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([(0.9*l-d1-1.5*pl)/2,0,0])
-                    pulley(1.5*pl,1.5*pr,pt,o_fillet=of,t_fillet=true);
+                translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([f2*d1,0,0])
+                    pulley(l-(0.5+f2)*d1-(0.5+f1)*d2,1.5*pr,pt,o_fillet=of,t_fillet=true);
                 //abd1
                 translate([d1/2-pr,d1/2,w/2]) rotate([90,0,0])
                     pulley(0.75*pl,pr,pt,o_fillet=of,t_fillet=true);
@@ -215,7 +232,7 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                     pulley(0.75*pl,pr,pt,o_fillet=of,t_fillet=true);
                 translate([l-d2/2-0.75*pl+pr,d2/2,-w/2]) rotate([270,0,0])
                     pulley(0.75*pl,pr,pt,o_fillet=of,t_fillet=true);
-                if(joint_type==0){
+                if(joint_type==0||joint_type==1){
                     translate([d1/2,0,0]) rotate([180,0,0])
                         pulley(pl,1.5*pr,pt,o_fillet=of,t_fillet=true);
                     translate([l-d2/2-pl,0,0]) rotate([180,0,0])
@@ -223,7 +240,7 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                 }
             }
         }
-    //intermediate
+    //------------------------------intermediate------------------------------//
     }else if(bone_type==2){
         union(){
             //bone
@@ -233,24 +250,28 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                         polyhedron(points=[[d1/2,0,-w/2],[d1/2,0,w/2],[d1/2,d1,-w/2],[d1/2,d1,w/2],[l-d2/2,0,-w/2],[l-d2/2,0,w/2],[l-d2/2,d2,-w/2],[l-d2/2,d2,w/2]],faces=[[0,2,3,1],[0,1,5,4],[4,5,7,6],[2,6,7,3],[0,4,6,2],[1,3,7,5]]);
                         translate([d1/2,d1/2,-w/2])
                             cylinder(w,d1/2,d1/2);
-                        translate([0,0,-(w-2*lw-0.2)/2])
-                            cube([d1/2+0.1,d1/2,w-2*lw-0.2]);
-                        translate([l-d2/2-0.1,0,-(w-2*lw-0.2)/2])
-                            cube([d2/2+0.1,d2/2,w-2*lw-0.2]);
+                        translate([0,0,-(w-2*lw-0.4)/2])
+                            cube([d1/2+0.1,d1/2,w-2*lw-0.4]);
+                        translate([l-d2/2-0.1,0,-(w-2*lw-0.4)/2])
+                            cube([d2/2+0.1,d2/2,w-2*lw-0.4]);
                         translate([l-d2/2,d2/2,-w/2])
                             cylinder(w,d2/2,d2/2);
                     }
                 }
-                translate([d1/2+pl,2,2-w/2]) rotate([0,90,0]) rotate([0,0,270])
-                    quarter_pipe(l-(d1+d2)/2-2*pl,2,ext=true);
-                translate([d1/2+pl,2,w/2-2]) rotate([0,90,0]) rotate([0,0,180])
-                    quarter_pipe(l-(d1+d2)/2-2*pl,2,ext=true);
+                translate([d1/2+0.75*pl-pr,w/2-1,-1]) rotate([0,90,0]) rotate([0,0,270])
+                    quarter_pipe(l-(d1+d2)/2-1.75*pl+pr,w/2-1,ext=true);
+                translate([d1/2+0.75*pl-pr,w/2-1,1]) rotate([0,90,0]) rotate([0,0,180])
+                    quarter_pipe(l-(d1+d2)/2-1.75*pl+pr,w/2-1,ext=true);
                 if(tendon_type==1){
                     //tendon anchors
-                    translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([l-d1/2-d2/2-5,0.1,0]) rotate([90,0,0])
-                        cylinder(4,1,1);
-                    translate([d1/2,-0.1,0]) rotate([-90,0,0])
-                        cylinder(4,1,1);
+                    translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([l-d1/2-d2/2-2,0.1,0]) rotate([90,0,0]){
+                        cylinder(4.5,1,1);
+                        chamfer(2);
+                    }
+                    translate([d1/2,-0.1,0]) rotate([-90,0,0]){
+                        cylinder(4.5,1,1);
+                        chamfer(2);
+                    }
                 }
             }
             
@@ -265,8 +286,8 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
             //pulleys
             if(pulley_type==0){
                 //flex
-                translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([(0.9*l-d1-1.5*pl)/2,0,0])
-                    pulley(1.5*pl,1.5*pr,pt,o_fillet=of,t_fillet=true);
+                translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([f2*d1,0,0])
+                    pulley(l-(0.5+f2)*d1-(0.5+f1)*d2,1.5*pr,pt,o_fillet=of,t_fillet=true);
                 //abd1
                 translate([d1/2-pr,d1/2,w/2]) rotate([90,0,0])
                     pulley(0.75*pl,pr,pt,o_fillet=of,t_fillet=true);
@@ -290,7 +311,7 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                     tendon(tl[1],0.6,2.5);
             }
         }
-    //distal
+    //------------------------------distal------------------------------//
     }else if(bone_type==3){
         union(){
             //bone
@@ -300,18 +321,30 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                         polyhedron(points=[[d1/2,0,-w/2],[d1/2,0,w/2],[d1/2,d1,-w/2],[d1/2,d1,w/2],[l-d2/2,0,-w/2],[l-d2/2,0,w/2],[l-d2/2,d2,-w/2],[l-d2/2,d2,w/2]],faces=[[0,2,3,1],[0,1,5,4],[4,5,7,6],[2,6,7,3],[0,4,6,2],[1,3,7,5]]);
                         translate([d1/2,d1/2,-w/2])
                             cylinder(w,d1/2,d1/2);
-                        translate([0,0,-(w-2*lw-0.2)/2])
-                            cube([d1/2+0.1,d1/2,w-2*lw-0.2]);
+                        translate([0,0,-(w-2*lw-0.4)/2])
+                            cube([d1/2+0.1,d1/2,w-2*lw-0.4]);
                         translate([l-d2/2,d2/2,-w/2])
                             cylinder(w,d2/2,d2/2);
+                    }
+                    //nail
+                    if(nail_type==0){
+                        translate([l/2-d2/2,-1,-w/2]){
+                            cube([l/2,1,w]);
+                            translate([0,-2,-1])
+                                cube([l/2+3,2,w+2]);
+                        }
                     }
                 }
                 if(tendon_type==1){
                     //tendon anchors
-                    translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([0.9*l/2-d1/2,0.1,0]) rotate([90,0,0])
-                        cylinder(4,1,1);
-                    translate([d1/2,-0.1,0]) rotate([-90,0,0])
-                        cylinder(4,1,1);
+                    translate([d1/2,d1,0]) rotate([0,0,-atan2(d1-d2,l-(d1+d2)/2)]) translate([f2*d1+2,0.1,0]) rotate([90,0,0]){
+                        cylinder(4.5,1,1);
+                        chamfer(2);
+                    }
+                    translate([d1/2,-0.1,0]) rotate([-90,0,0]){
+                        cylinder(4.5,1,1);
+                        chamfer(2);
+                    }
                 }
             }
                 
@@ -338,17 +371,8 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                     rotate([0,179,0])
                         tendon(tl[1],0.6,2.5);
             }
-            
-            //nail
-            if(nail_type==0){
-                translate([l/2-d2/2,-1,-w/2]){
-                    cube([l/2,1,w]);
-                    translate([0,-2,-1])
-                        cube([l/2+3,2,w+2]);
-                }
-            }
         }
-    //carpal
+    //------------------------------carpal------------------------------//
     }else if(bone_type==4){
         union(){
             //bone
@@ -369,10 +393,13 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
             //pulleys
             if(pulley_type==0){
                 //flex
-                translate([0.8*l-d2/2-1.5*pl,d2,0]) rotate([0,0,0])
-                    pulley(1.5*pl,1.5*pr,pt,o_fillet=of,t_fillet=true);
+                translate([l-(0.5+f1)*d2-1*pl,d2,0]) rotate([0,0,0])
+                    pulley(1*pl,1.5*pr,pt,o_fillet=of,t_fillet=true);
                 //abd1
                 translate([l-d2/2+pr-pl,d2/2,w/2]) rotate([90,0,0])
+                    pulley(pl,pr,pt,o_fillet=of,t_fillet=true);
+                //abd2
+                translate([l-d2/2+pr-pl,d2/2,-w/2]) rotate([270,0,0])
                     pulley(pl,pr,pt,o_fillet=of,t_fillet=true);
                 //ext
                 if(joint_type==0){
