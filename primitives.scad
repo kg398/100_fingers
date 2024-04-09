@@ -122,7 +122,7 @@ module tendon(l, t, w, r=2, center=false){
 }
 
 
-//bone(12.59560667,12.37937763,12.37937763,12.37937763,bone_type=carp,joint_type=0,lig_ang=0);
+//bone(12.59560667,12.37937763,12.37937763,12.37937763,bone_type=dist,joint_type=0,lig_ang=0);
 //multi-bone module
 //l -> length of tendon
 //d1 -> proximal diameter
@@ -330,8 +330,13 @@ module bone(l, d1, d2, w, bone_type=0, joint_type=0, lig_type=0, lig_ang=0, pull
                     if(nail_type==0){
                         translate([l/2-d2/2,-1,-w/2]){
                             cube([l/2,1,w]);
-                            translate([0,-2,-1])
-                                cube([l/2+3,2,w+2]);
+                            translate([0,-2,-1]){
+                                difference(){
+                                    cube([l/2+3,2,w+2]);
+                                    translate([l/2+3,1.7,-0.1]) rotate([0,0,45])
+                                        cube([1,1,w+2.2]);
+                                }
+                            }
                         }
                     }
                 }
