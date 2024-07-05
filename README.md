@@ -53,10 +53,11 @@ Manual handles allow testing of Bowden tube actuation and exploration of hand be
 
 Figure 6: Joint organisation through tension.
 
-![Throwing and catching a lemon with the mirrored hand design gif](/media/aye_aye_demo.gif)
+![Throwing and catching a lemon with the mirrored hand design gif](/media/2thumb_catching.gif)
 
 Figure 7: Mirrored hand catching demo.
 
+![Throwing and catching a lemon with the mirrored hand design gif](/media/aya_aye_demo.gif)
 ![Manual picking up and using a computer mouse with the aye-aye hand design](/media/aya_aye_demo.gif)
 
 Figure 8: Aye-aye hand demo.
