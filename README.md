@@ -65,7 +65,7 @@ Figure 8: Aye-aye hand demo.
 Bill of materials for FDM printed human hand design with 1 dof actuation.
 
 | Part  | Description | Quantity |
-| ------------- | ------------- | ---- |
+| ------------- | ------------- | ----: |
 | Polypropylene filament (approx 50grams)  | Single-piece printed hand  | 1 |
 | M2x4 countersunk bolts | Tendon anchors | 21 |
 | 0.2mm braided nylon fishing line (40cm length) | Individual tendon lines | 31 |
