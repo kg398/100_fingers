@@ -62,8 +62,23 @@ Figure 7: Mirrored hand catching demo.
 Figure 8: Aye-aye hand demo.
 
 ## Bill of materials
+Bill of materials for FDM printed human hand design with 1 dof actuation.
 
 | Part  | Description | Quantity |
 | ------------- | ------------- | ---- |
-| Content Cell  | Content Cell  | 10 |
-| Content Cell  | Content Cell  | 1 |
+| Polypropylene filament (approx 50grams)  | Single-piece printed hand  | 1 |
+| M2x4 countersunk bolts | Tendon anchors | 21 |
+| 0.2mm braided nylon fishing line (40cm length) | Individual tendon lines | 31 |
+| ------------- | ------------- | ---- |
+| PLA filament (approx 50g)  | Actuation box printed parts  | 1 |
+| Extension springs | Various lengths/constants | 26 |
+| 15x5x4 flanged bearing | Outer diameter, inner, height | 2 |
+| 50x4mm smooth rod | Bearing surface, e.g. aluminium | 3 |
+| 60x1.5mm smooth rod | Passive tendon pins, e.g. fibreglass | 3 |
+| M2 countersunk bolts | Active tendon and spring anchors, various size | 11 |
+| M2/3/5 caphead bolts | Box assembly, tendon clips | 50 |
+| M2 nuts | Tendon clips | 21 |
+| ------------- | ------------- | ---- |
+| PLA filament (approx 100g)  | Manual handle printed parts  | 1 |
+| 100x4x2.5mm PTFE tube  | Length, OD, ID bowden tube  | 1 |
+| M3/M5 bolts  | Tendon anchor and handle pivot  | 2 |
