@@ -60,3 +60,10 @@ Figure 7: Mirrored hand catching demo.
 ![Manual picking up and using a computer mouse with the aye-aye hand design](/media/aya_aye_demo.gif)
 
 Figure 8: Aye-aye hand demo.
+
+## Bill of materials
+
+| Part  | Description | Quantity |
+| ------------- | ------------- | ---- |
+| Content Cell  | Content Cell  | 10 |
+| Content Cell  | Content Cell  | 1 |
