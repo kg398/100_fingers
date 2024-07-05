@@ -1,5 +1,6 @@
 # 100_fingers project: Parametric hand
 ![Human, mirrored human, and aye-aye hand designs and assemblies](/media/hands.png)
+
 Figure 1: Three example hands included in the initial release.
 
 Generating large numbers of anatomical parameterised fingers and hands with OpenSCAD (https://openscad.org/).
@@ -19,6 +20,7 @@ Additionally, the hand is designed to be uncomprimising with actuation. Five ten
 
 ## Hand customisation
 ![Screenshot of parameters.scad in OpenSCAD](/media/parameters.png)
+
 Figure 2: Hand parameters.
 
 In the current version, all bone lengths and joint diameters can be altered, as can: relative finger position, individual finger width, pulley size/strength, ligament size/strength and hand inward curvature. Possible to customise but requires code modification include: number of fingers/thumbs, individual bone width/pulley/ligament size and more.
@@ -33,6 +35,7 @@ Hands can be printed via commercial FDM printers (Prusa/Creality/Craftbot/Raise3
 SLS printing is also suitable. Only polyamide (PA2200) has been tested, resulting in stiffer bones than polypropylene and a cleaner print. Orientation is less critical.
 
 ![Actuation box features and tendon routing paths](/media/actuation.png)
+
 Figure 4: Tendon routing and actuation.
 
 Once the hand is printed, tendons must be routed manually. Depending on application, braided nylon from 0.2--0.5mm diameter is suitable (0.2mm is easier to work with and results in less friction, though has lower load potential). Tie with self-tightening knots to countersunk M2 bolts following routing from Figure 4.
@@ -40,16 +43,20 @@ Once the hand is printed, tendons must be routed manually. Depending on applicat
 Actuation box is assembled as in Figure 4 with M2 and M3 bolts. All springs (passive tendon and active series elastic) should be approx 10--15mm free length and 0.06--0.87N/mm spring constant (alternatives possible but stronger springs need reinforced tendon paths). See publication (in progress) for example functional tendon routings.
 
 ![Human hand design with double pulley actuation gif](/media/double_pulley_manual_handle.gif)
+
 Figure 5: Whole assembly and manual actuation.
 
 Manual handles allow testing of Bowden tube actuation and exploration of hand behaviours.
 
 ## Demos
 ![Resting state to ready joint state by tensioning all tendons gif](/media/hand_tension.gif)
+
 Figure 6: Joint organisation through tension.
 
 ![Throwing and catching a lemon with the mirrored hand design gif](/media/2thumb_catching.gif)
+
 Figure 7: Mirrored hand catching demo.
 
 ![Manual picking up and using a computer mouse with the aye-aye hand design](/media/aya_aye_demo.gif)
+
 Figure 8: Aye-aye hand demo.
