@@ -57,7 +57,6 @@ Figure 6: Joint organisation through tension.
 
 Figure 7: Mirrored hand catching demo.
 
-![Throwing and catching a lemon with the mirrored hand design gif](/media/aya_aye_demo.gif)
 ![Manual picking up and using a computer mouse with the aye-aye hand design](/media/aya_aye_demo.gif)
 
 Figure 8: Aye-aye hand demo.
