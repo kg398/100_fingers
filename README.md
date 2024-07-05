@@ -9,12 +9,12 @@ The hand is designed for single-piece 3d printing with consumer-grade printers, 
 Additionally, the hand is designed to be uncomprimising with actuation. Five tendons per four degree of freedom finger allows full control. Though for simplicity, accessibility and exploration of hand behaviours, the included actuation system examples rely heavily on underactuation by connecting the majority of tendons to passive springs.
 
 ## Summary of files
--OpenSCAD: scripts for generating hands with OpenSCAD. parameters.scad for demo use and parameters for generating example hands
--STLs: 3D files for 3D printable parts
-  -STLs/hands: three example hands generated from parameters.scad and example generated for visualisation (no_lig)
-  -STLs/actuation_box: 3D files for three examples of modular actuation (1 degree-of-freedom(dof)/synergy, 2 dof/synergy, 1 dof with switching modulation)
-  -STLs/manual_handles: 3D files for manual lever actuation and handles for 1 and 2 dof actuation boxes
--media: images from publication (in progress)
+- OpenSCAD: scripts for generating hands with OpenSCAD. parameters.scad for demo use and parameters for generating example hands
+- STLs: 3D files for 3D printable parts
+  - STLs/hands: three example hands generated from parameters.scad and example generated for visualisation (no_lig)
+  - STLs/actuation_box: 3D files for three examples of modular actuation (1 degree-of-freedom(dof)/synergy, 2 dof/synergy, 1 dof with switching modulation)
+  - STLs/manual_handles: 3D files for manual lever actuation and handles for 1 and 2 dof actuation boxes
+- media: images from publication (in progress)
 
 ## Hand customisation
 ![Figure 2: Hand parameters.](/media/parameters.png)
@@ -35,6 +35,14 @@ Once the hand is printed, tendons must be routed manually. Depending on applicat
 
 Actuation box is assembled as in Figure 4 with M2 and M3 bolts. All springs (passive tendon and active series elastic) should be approx 10--15mm free length and 0.06--0.87N/mm spring constant (alternatives possible but stronger springs need reinforced tendon paths). See publication (in progress) for example functional tendon routings.
 
-![Figure 5: Final assembly.](/media/assembly.png)
+![Figure 5: Final assembly.](/media/double_pulley_manual_handle.gif)
 
 Manual handles allow testing of Bowden tube actuation and exploration of hand behaviours.
+
+## Demos
+![Figure 6: Joint organisation through tension.](/media/hand_tension.gif)
+
+![Figure 7: Mirrored hand catching demo.](/media/2thumb_catching.gif)
+
+![Figure 8: Aye-aye hand demo.](/media/aya_aye_demo.gif)
+
