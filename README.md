@@ -10,7 +10,7 @@ Code for generating the initial hand version and 3D files for reproduction and m
 The hand is designed for single-piece 3d printing with consumer-grade printers, enabling rapid customisation and large-scale real-world experimentation.
 Additionally, the hand is designed to be uncomprimising with actuation. Five tendons per four degree of freedom finger allows full control. Though for simplicity, accessibility and exploration of hand behaviours, the included actuation system examples rely heavily on underactuation by connecting the majority of tendons to passive springs.
 
-## Summary of files
+### Summary of files
 - /OpenSCAD: scripts for generating hands with OpenSCAD. parameters.scad for demo use and parameters for generating example hands
 - /STLs: 3D files for 3D printable parts
   - /STLs/hands: three example hands generated from parameters.scad and example generated for visualisation (no_lig)
@@ -18,7 +18,7 @@ Additionally, the hand is designed to be uncomprimising with actuation. Five ten
   - /STLs/manual_handles: 3D files for manual lever actuation and handles for 1 and 2 dof actuation boxes
 - /media: images from publication (in progress)
 
-## Hand customisation
+### Hand customisation
 ![Screenshot of parameters.scad in OpenSCAD](/media/parameters.png)
 
 Figure 2: Hand parameters.
