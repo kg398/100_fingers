@@ -48,7 +48,16 @@ Figure 5: Whole assembly and manual actuation.
 
 Manual handles allow testing of Bowden tube actuation and exploration of hand behaviours.
 
-## Demos
+## In progress
+
+Look out for future updates on:
+- Detailed build guide/step-by-step instructions
+- Hand design database and modelling/behaviour guide
+- Parametric skin for printing/casting
+
+
+## Appendix
+### Demos
 ![Resting state to ready joint state by tensioning all tendons gif](/media/hand_tension.gif)
 
 Figure 6: Joint organisation through tension.
@@ -61,7 +70,7 @@ Figure 7: Mirrored hand catching demo.
 
 Figure 8: Aye-aye hand demo.
 
-## Bill of materials
+### Bill of materials
 Bill of materials for FDM printed human hand design with 1 dof actuation.
 
 | Part  | Description | Quantity |
