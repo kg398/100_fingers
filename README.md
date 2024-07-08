@@ -54,6 +54,7 @@ Look out for future updates on:
 - Detailed build guide/step-by-step instructions
 - Hand design database and modelling/behaviour guide
 - Parametric skin for printing/casting
+- Upcoming publications on design methodology and initial results
 
 
 ## Appendix
