@@ -8,78 +8,162 @@ include <hand.scad>
 //Facet minimum scale
 $fs = 1;  // Don't generate smaller facets than 0.1 mm
 //Angle maximum
-$fa = 5;    // Don't generate larger angles than 3 degrees
+$fa = 7.5;    // Don't generate larger angles than 3 degrees
 
 
-//----------------------------------Human---------------------------------//
+//--------------------------------Human_v2---------------------------------//
 /*[ Global Configurations ] */
 //Ligament width and thickness
 lig_index = [2.5,0.6];
-//Pulley length, thickness and radius
+//Finger pulley length, thickness and radius
 p_index = [5,1.5,1];
+//Thumb pulley length, thickness and radius
 p_thumb = [5,2.2,1];
-//Print angle
+//Print angle/hand inward curvature
 a_print = 45;
 
 /*[ Index finger Configuration ] */
 //Index bone lengths
-bl_index = [70.34038861,	31.45565209, 19.39689333,	19.70641476];
+bl_index = [80,	38, 20,	20];
 //Index joint diameters
-jd_index = [10.76135651,	9.685220862,	8.716698775];
+base_jd_index = 12.5;
+jd_index = [base_jd_index*0.7,    base_jd_index,	base_jd_index*0.6,	base_jd_index*0.5];
 //Index origin
 o_index = [0,1.5,0];
 //Index angle
-a_index = [0,-12.80426607,0];
+a_index = [0,-10,0];
 //Index width
-w_index = 10.76135651-1;
+base_w_index = 15;
+w_index = [base_w_index*0.7,base_w_index,base_w_index*0.8,base_w_index*0.7,base_w_index*0.7];
+
 
 /*[ Middle finger Configuration ] */
 //Middle bone lengths
-bl_middle = [74.18573228,	33.25815526,	20.7852194,	21.47806005];
+bl_middle = [82,	41,	20.5,	20.5];
 //Middle joint diameters
-jd_middle = [11.43187067,	10.2886836,	9.259815242];
+base_jd_middle = 14;
+jd_middle = [base_jd_middle*0.7,    base_jd_middle,	base_jd_middle*0.6,	base_jd_middle*0.5];
 //Middle origin
-o_middle = [0,0,-7.448036952-3];
+o_middle = [0,0,-12];
 //Middle angle
-a_middle = [0,-2.140901366,0];
+a_middle = [0,3,0];
 //Middle width
-w_middle = 11.43187067-1;
+base_w_middle = 16;
+w_middle = [base_w_middle*0.7,base_w_middle,base_w_middle*0.8,base_w_middle*0.7,base_w_middle*0.7];
 
 /*[ Ring finger Configuration ] */
 //Ring bone lengths
-bl_ring = [71.42394053,	30.98477567,	19.9905839,	21.0177524];
+bl_ring = [79,	38,	19,	19];
 //Ring joint diameters
-jd_ring = [10.76135651,	9.685220862,	8.716698775];
+base_jd_ring = 12.5;
+jd_ring = [base_jd_ring*0.7,    base_jd_ring,	base_jd_ring*0.6,	base_jd_ring*0.5];
 //Ring origin
-o_ring = [0,1,-14.8960739-8];
+o_ring = [0,1,-24];
 //Ring angle
-a_ring = [0,6.12537194,0];
+a_ring = [0,16,0];
 //ring width
-w_ring = 9.76135651-1;
+base_w_ring = 15;
+w_ring = [base_w_ring*0.7,base_w_ring,base_w_ring*0.8,base_w_ring*0.7,base_w_ring*0.7];
 
 /*[ Little finger Configuration ] */
 //Little bone lengths
-bl_little = [59.76629115,	27.64859576,	17.98718936,	16.80406398];
+bl_little = [74,	35,	17,	17];
 //Little joint diameters
-jd_little = [9.410908342,	8.469817508,	7.622835757];
+base_jd_little = 11;
+jd_little = [base_jd_little*0.7,    base_jd_little,	base_jd_little*0.6,	base_jd_little*0.5];
 //Little origin
-o_little = [0,3.5,-22.34411085-11];
+o_little = [0,3.5,-34];
 //Little angle
-a_little = [0,15.80854318,0];
+a_little = [0,30,0];
 //Little width
-w_little = 8.910908342-1;
+base_w_little = 13;
+w_little = [base_w_little*0.7,base_w_little,base_w_little*0.8,base_w_little*0.7,base_w_little*0.7];
 
 /*[ Thumb Configuration ] */
 //Thumb bone lengths
-bl_thumb = [13.70441601+5,	38.75265286,	26.99856966,	22.34343949];
+bl_thumb = [25,	35,	25,	25];
 //Thumb joint diameters
-jd_thumb = [12.37937763,	11.14143987,	10.02729588];
+base_jd_thumb = 16;
+jd_thumb = [base_jd_thumb*0.7,    base_jd_thumb,	base_jd_thumb*0.6,	base_jd_thumb*0.5];
 //Thumb origin
-o_thumb = [-3,4.5,7.448036952+4];
-//Middle angle
-a_thumb = [0,-73.85566122-16,0];
+o_thumb = [-3,3.5,15];
+//Thumb angle
+a_thumb = [0,-100,0];
 //Thumb width
-w_thumb = 12.37937763;
+base_w_thumb = 20;
+w_thumb = [base_w_thumb*0.7,base_w_thumb,base_w_thumb*0.8,base_w_thumb*0.7,base_w_thumb*0.7];
+
+
+////----------------------------------Human---------------------------------//
+///*[ Global Configurations ] */
+////Ligament width and thickness
+//lig_index = [2.5,0.6];
+////Pulley length, thickness and radius
+//p_index = [5,1.5,1];
+//p_thumb = [5,2.2,1];
+////Print angle
+//a_print = 45;
+//
+///*[ Index finger Configuration ] */
+////Index bone lengths
+//bl_index = [70.34038861,	31.45565209, 19.39689333,	19.70641476];
+////Index joint diameters
+//jd_index = [10.76135651,    10.76135651,	9.685220862,	8.716698775];
+////Index origin
+//o_index = [0,1.5,0];
+////Index angle
+//a_index = [0,-12.80426607,0];
+////Index width
+//w_index = [10.76135651-3,10.76135651,10.76135651-2,10.76135651-4,10.76135651-6];
+//
+//
+///*[ Middle finger Configuration ] */
+////Middle bone lengths
+//bl_middle = [74.18573228,	33.25815526,	20.7852194,	21.47806005];
+////Middle joint diameters
+//jd_middle = [11.43187067,	11.43187067,	10.2886836,	9.259815242];
+////Middle origin
+//o_middle = [0,0,-7.448036952-3];
+////Middle angle
+//a_middle = [0,-2.140901366,0];
+////Middle width
+//w_middle = [11.43187067-3,11.43187067,11.43187067-2,11.43187067-4,11.43187067-6];
+//
+///*[ Ring finger Configuration ] */
+////Ring bone lengths
+//bl_ring = [71.42394053,	30.98477567,	19.9905839,	21.0177524];
+////Ring joint diameters
+//jd_ring = [10.76135651,	10.76135651,	9.685220862,	8.716698775];
+////Ring origin
+//o_ring = [0,1,-14.8960739-8];
+////Ring angle
+//a_ring = [0,6.12537194,0];
+////ring width
+//w_ring = [9.76135651-3,9.76135651,9.76135651-2,9.76135651-4,9.76135651-6];
+//
+///*[ Little finger Configuration ] */
+////Little bone lengths
+//bl_little = [59.76629115,	27.64859576,	17.98718936,	16.80406398];
+////Little joint diameters
+//jd_little = [9.410908342,	9.410908342,	8.469817508,	7.622835757];
+////Little origin
+//o_little = [0,3.5,-22.34411085-11];
+////Little angle
+//a_little = [0,15.80854318,0];
+////Little width
+//w_little = [8.910908342-3,8.910908342+2,8.910908342-2,8.910908342-4,8.910908342-6];
+//
+///*[ Thumb Configuration ] */
+////Thumb bone lengths
+//bl_thumb = [13.70441601+5,	38.75265286,	26.99856966,	22.34343949];
+////Thumb joint diameters
+//jd_thumb = [12.37937763,	12.37937763,	11.14143987,	10.02729588];
+////Thumb origin
+//o_thumb = [-3,6.5,7.448036952+4];
+////Middle angle
+//a_thumb = [0,-73.85566122-16,0];
+////Thumb width
+//w_thumb = [12.37937763,12.37937763+5,12.37937763-2,12.37937763-4,12.37937763-6];
 
 
 
@@ -302,7 +386,20 @@ rotate([180,0,0])
     hand();             // standard version for printing
 //    hand_nolig();       // non-print version only for visualisation
 //    hand_2thumb();      // alternate version needed for opposition tendons
+//    hand_2thumb_nolig();
 //    single_finger();    // just generate index finger
+    
+//------------------------------camera setup------------------------//
+//$vpr = [ 85.10, 0.00, 8.90 ];
+//$vpt = [ 2.93, -42.38, 87.58 ];
+//$vpd = 623.64;
+//$vpf = 22.50;
+
+////for animation: fps 30, steps 360
+//$vpr = [ 71.10, 0.00, 360*$t ];
+//$vpt = [ 0, 0, 50 ];
+//$vpd = 561.28;
+//$vpf = 22.50;
 
 
 echo(version());
