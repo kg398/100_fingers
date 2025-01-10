@@ -20,7 +20,7 @@ p_index = [5,1.5,1];
 //Thumb pulley length, thickness and radius
 p_thumb = [5,2.2,1];
 //Print angle/hand inward curvature
-a_print = 45;
+a_print = 35;
 
 /*[ Index finger Configuration ] */
 //Index bone lengths
@@ -388,6 +388,8 @@ rotate([180,0,0])
 //    hand_2thumb();      // alternate version needed for opposition tendons
 //    hand_2thumb_nolig();
 //    single_finger();    // just generate index finger
+//    hand_modular(model=all);  // version where palm and fingers can be printed separately (model=all/palm/index/middle/ring/little/thumb) e.g.:
+//    hand_modular(model=index);
     
 //------------------------------camera setup------------------------//
 //$vpr = [ 85.10, 0.00, 8.90 ];

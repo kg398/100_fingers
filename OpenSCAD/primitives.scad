@@ -63,10 +63,8 @@ module chamfer(r, h=5){
 //pulley(5,1,1.5);
 //pulley for tendon
 //l -> length of pulley
-//h -> internal height
-//t1 => side thickness
-//t2 -> top thickness
-//w => internal width
+//r -> inner radius
+//t -> thickness
 //o_fillet -> outer fillet for bone adhesion
 //t_fillet -> tendon fillet for smooth tendon motion
 //ext -> extend tabs for subtraction
