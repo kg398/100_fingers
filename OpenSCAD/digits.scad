@@ -70,7 +70,7 @@ module finger(bone_lengths, joint_diams, bone_width=[10,10,10,10,10], jt=0, ang=
             }
             if(index!=0){
                 //abd1
-                translate([index,joint_diams[1]/2,(bone_width[1]+bone_width[2])/4]) rotate([90,0,0])
+                translate([index,joint_diams[1]/2,(bone_width[0]+bone_width[1])/4]) rotate([90,0,0])
                     pulley(5,1,2,o_fillet=false,t_fillet=true);
             }
         }
@@ -99,7 +99,7 @@ module palm(h,r1,r2){
 
 //finger_nolig(bone_lengths,joint_diams,ang=45,index=false);
 //finger module
-module finger_nolig(bone_lengths, joint_diams, bone_width=10, jt=0, ang=0, thumb=0, index=0, lig=[2.5,0.6], pulley=[5,1.5,1]){
+module finger_nolig(bone_lengths, joint_diams, bone_width=[10,10,10,10,10], jt=0, ang=0, thumb=0, index=0, lig=[2.5,0.6], pulley=[5,1.5,1]){
     rotate([0,0,ang]){
         union(){
             //metacarpal

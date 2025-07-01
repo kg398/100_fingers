@@ -120,7 +120,7 @@ module tendon(l, t, w, r=2, center=false){
 }
 
 
-//bone(30,12,10,12,w2=16,bone_type=meta,joint_type=2,lig_ang=20);
+//bone(34.3,15.6, 7.1,5.5, w2=15.4,bone_type=inte,joint_type=0,lig_ang=20);
 //multi-bone module
 //l -> length of tendon
 //d1 -> proximal diameter
@@ -237,11 +237,12 @@ module bone(l, d1, d2, w, w2=0, bone_type=0, joint_type=0, lig_type=0, lig_ang=0
                         }
                     }
                 }
+                rad=min(w,w2);
                 ang=atan2((w-w2)/2,l-d1/2-d2/2);
-                translate([d1/2,(w2/2-1),-1-(l-(d1+d2)/2-2*pl)]) rotate([0,-ang,0]) translate([pl,0,l-(d1+d2)/2-2*pl-(w-w2)/2]) rotate([0,90,0]) rotate([0,0,270])
-                            quarter_pipe(l-(d1+d2)/2-2*pl,w2/2-1,ext=true);
-                translate([d1/2,w2/2-1,1+(l-(d1+d2)/2-2*pl)]) rotate([0,ang,0]) translate([pl,0,-(l-(d1+d2)/2-2*pl)+(w-w2)/2]) rotate([0,90,0]) rotate([0,0,180])
-                            quarter_pipe(l-(d1+d2)/2-2*pl,w2/2-1,ext=true);
+                translate([d1/2,rad/2-1,-w/2]) rotate([0,-ang,0]) translate([pl,0,rad/2-1]) rotate([0,90,0]) rotate([0,0,270])
+                            quarter_pipe(l-(d1+d2)/2-2*pl,rad/2-1,ext=true);
+                translate([d1/2,rad/2-1,w/2]) rotate([0,ang,0]) translate([pl,0,-rad/2+1]) rotate([0,90,0]) rotate([0,0,180])
+                            quarter_pipe(l-(d1+d2)/2-2*pl,rad/2-1,ext=true);
                 if(joint_type==0){
                     translate([w/2-1,d1,-1]) rotate([90,180,0])
                         quarter_pipe(d1,w/2-1,ext=true);
@@ -315,11 +316,12 @@ module bone(l, d1, d2, w, w2=0, bone_type=0, joint_type=0, lig_type=0, lig_ang=0
                         }
                     }
                 }
+                rad=min(w,w2);
                 ang=atan2((w-w2)/2,l-d1/2-d2/2);
-                translate([d1/2,(w2/2-1),-1-(l-(d1+d2)/2-2*pl)]) rotate([0,-ang,0]) translate([+0.75*pl-pr,0,l-(d1+d2)/2-2*pl-(w-w2)/2]) rotate([0,90,0]) rotate([0,0,270])
-                            quarter_pipe(l-(d1+d2)/2-1.75*pl+pr,w2/2-1,ext=true);
-                translate([d1/2,w2/2-1,1+(l-(d1+d2)/2-2*pl)]) rotate([0,ang,0]) translate([+0.75*pl-pr,0,-(l-(d1+d2)/2-2*pl)+(w-w2)/2]) rotate([0,90,0]) rotate([0,0,180])
-                            quarter_pipe(l-(d1+d2)/2-1.75*pl+pr,w2/2-1,ext=true);
+                translate([d1/2,rad/2-1,-w/2]) rotate([0,-ang,0]) translate([+0.75*pl-pr,0,rad/2-1]) rotate([0,90,0]) rotate([0,0,270])
+                            quarter_pipe(l-(d1+d2)/2-1.75*pl+pr,rad/2-1,ext=true);
+                translate([d1/2,rad/2-1,w/2]) rotate([0,ang,0]) translate([+0.75*pl-pr,0,-rad/2+1]) rotate([0,90,0]) rotate([0,0,180])
+                            quarter_pipe(l-(d1+d2)/2-1.75*pl+pr,rad/2-1,ext=true);
                 
                 
                 if(tendon_type==1){
@@ -336,11 +338,12 @@ module bone(l, d1, d2, w, w2=0, bone_type=0, joint_type=0, lig_type=0, lig_ang=0
             }
             
             //ligaments
+            lig = sqrt(pow((0.5*PI*d1+lt)*cos(lig_ang),2)+pow((0.5*PI*d1+lt)*sin(lig_ang),2))+1;
             if(lig_type==0){
                 translate([0.5*d1,d1-0.1,w/2-lw]) rotate([0,0,180-lig_ang])
-                    cube([2*d1,lt,lw]);
+                    cube([lig,lt,lw]);
                 translate([0.5*d1,d1-0.1,-w/2]) rotate([0,0,180-lig_ang])
-                    cube([2*d1,lt,lw]);
+                    cube([lig,lt,lw]);
             }
             
             //pulleys
@@ -422,11 +425,12 @@ module bone(l, d1, d2, w, w2=0, bone_type=0, joint_type=0, lig_type=0, lig_ang=0
             }
                 
             //ligaments
+            lig = sqrt(pow((0.5*PI*d1+lt)*cos(lig_ang),2)+pow((0.5*PI*d1+lt)*sin(lig_ang),2))+1;
             if(lig_type==0){
                 translate([0.5*d1,d1-0.1,w/2-lw]) rotate([0,0,180-lig_ang])
-                    cube([2*d1,lt,lw]);
+                    cube([lig,lt,lw]);
                 translate([0.5*d1,d1-0.1,-w/2]) rotate([0,0,180-lig_ang])
-                    cube([2*d1,lt,lw]);
+                    cube([lig,lt,lw]);
             }
             
             //pulleys

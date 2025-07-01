@@ -6,9 +6,9 @@ include <hand.scad>
 
 /*[ STL Configuration ] */
 //Facet minimum scale
-$fs = 1;  // Don't generate smaller facets than 0.1 mm
+$fs = 2;  // Don't generate smaller facets than 0.1 mm
 //Angle maximum
-$fa = 7.5;    // Don't generate larger angles than 3 degrees
+$fa = 15;    // Don't generate larger angles than 3 degrees
 
 
 //--------------------------------Human_v2---------------------------------//
@@ -20,7 +20,7 @@ p_index = [5,1.5,1];
 //Thumb pulley length, thickness and radius
 p_thumb = [5,2.2,1];
 //Print angle/hand inward curvature
-a_print = 35;
+a_print = 45;
 
 /*[ Index finger Configuration ] */
 //Index bone lengths
