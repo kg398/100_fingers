@@ -82,7 +82,7 @@ Bill of materials for FDM printed human hand design with 1 dof actuation.
 | ------------- | ------------- | ---- |
 | PLA filament  | Actuation box printed parts  | 50 (g) |
 | Extension springs (l: 10--15 mm; k: 0.1--1 N/mm) | Passive tendon mounting and SEA | 26 |
-| 15x5x4 mm flanged bearing | Actuation pulley mounting | 2 |
+| 15x5x4 mm flanged bearing (flangeD/ID/W) | Actuation pulley mounting | 2 |
 | 50x4mm smooth rod | Passive tendon bearing surface, e.g. aluminium | 3 |
 | 60x1.5mm smooth rod | Passive tendon pins, e.g. fibreglass | 3 |
 | Braided fishing line, ~1 mm diameter, >80 kg load | Actuation tendon |	0.3 (m) |
