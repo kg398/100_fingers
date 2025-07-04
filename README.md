@@ -76,19 +76,28 @@ Bill of materials for FDM printed human hand design with 1 dof actuation.
 
 | Part  | Description | Quantity |
 | ------------- | ------------- | ----: |
-| Polypropylene filament (approx 50grams)  | Single-piece printed hand  | 1 |
+| Polypropylene filament  | Single-piece printed hand  | 80 (g) |
 | M2x4 countersunk bolts | Tendon anchors | 21 |
-| 0.2mm braided nylon fishing line (40cm length) | Individual tendon lines | 31 |
+| Braided fishing line, ~0.2 mm diameter, >20 kg load | Tendons | 10 (m) |
 | ------------- | ------------- | ---- |
-| PLA filament (approx 50g)  | Actuation box printed parts  | 1 |
-| Extension springs | Various lengths/constants | 26 |
-| 15x5x4 flanged bearing | Outer diameter, inner, height | 2 |
-| 50x4mm smooth rod | Bearing surface, e.g. aluminium | 3 |
+| PLA filament  | Actuation box printed parts  | 50 (g) |
+| Extension springs (l: 10--15 mm; k: 0.1--1 N/mm) | Passive tendon mounting and SEA | 26 |
+| 15x5x4 mm flanged bearing | Actuation pulley mounting | 2 |
+| 50x4mm smooth rod | Passive tendon bearing surface, e.g. aluminium | 3 |
 | 60x1.5mm smooth rod | Passive tendon pins, e.g. fibreglass | 3 |
-| M2 countersunk bolts | Active tendon and spring anchors, various size | 11 |
-| M2/3/5 caphead bolts | Box assembly, tendon clips | 50 |
-| M2 nuts | Tendon clips | 21 |
+| Braided fishing line, ~1 mm diameter, >80 kg load | Actuation tendon |	0.3 (m) |
+| M2x4 countersunk bolts |	SEA spring mount |	5 |
+| M2x4 caphead |	Box assembly, passive tendon anchors, t-select |	3+21+1 |
+| M2x8 caphead |	Box assembly and active tendon anchors |	6+6 |
+| M2x10 caphead |	Box assembly and SEA pins |	2+2 |
+| M2 nut |	Passive and active tendon anchors |	21+5 |
+| M3x6 caphead |	Box assembly, wrist and handle mounting |	6+4+4 |
+| M4x12 grub screw |	Hand mount |	2 |
+| M5x16 caphead |	Pulley shaft |	1 |
 | ------------- | ------------- | ---- |
-| PLA filament (approx 100g)  | Manual handle printed parts  | 1 |
-| 100x4x2.5mm PTFE tube  | Length, OD, ID bowden tube  | 1 |
-| M3/M5 bolts  | Tendon anchor and handle pivot  | 2 |
+| PLA filament  | Manual handle printed parts  | 100 (g) |
+| 140x4 threaded rod, steel |	Tendon anchor and lever backbone |	1 |
+| M4x25 caphead |	Anchor locking pin |	1 |
+| M4 nut, square |	Tendon anchor |	4 |
+| M5x25 caphead |	Lever shaft |	1 |
+
