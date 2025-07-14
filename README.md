@@ -1,14 +1,14 @@
 # 100_fingers project: Parametric hand
 ![Human, mirrored human, and aye-aye hand designs and assemblies](/media/hands.png)
 
-Figure 1: Three example hands included in the initial release.
+Figure 1: Three example hands included in the initial release and presented in [(1)](#list-of-publications).
 
 Generating large numbers of anatomical parameterised fingers and hands with OpenSCAD (https://openscad.org/).
 
 ## Intro
 Code for generating the initial hand version and 3D files for reproduction and modular actuation.
 The hand is designed for single-piece 3d printing with consumer-grade printers, enabling rapid customisation and large-scale real-world experimentation.
-Additionally, the hand is designed to be uncomprimising with actuation. Five tendons per four degree of freedom finger allows full control. Though for simplicity, accessibility and exploration of hand behaviours, the included actuation system examples rely heavily on underactuation by connecting the majority of tendons to passive springs.
+Additionally, the hand is designed to be uncomprimising with actuation. Five tendons per four degree of freedom finger allows full control. Though for simplicity, accessibility, and exploration of hand behaviours, the included actuation system examples rely heavily on underactuation by connecting the majority of tendons to passive springs.
 
 ### Summary of files
 - /OpenSCAD: scripts for generating hands with OpenSCAD. parameters.scad for demo use and parameters for generating example hands
@@ -16,6 +16,7 @@ Additionally, the hand is designed to be uncomprimising with actuation. Five ten
   - /STLs/hands: three example hands generated from parameters.scad and example generated for visualisation (no_lig)
   - /STLs/actuation_box: 3D files for three examples of modular actuation (1 degree-of-freedom(dof)/synergy, 2 dof/synergy, 1 dof with switching modulation)
   - /STLs/manual_handles: 3D files for manual lever actuation and handles for 1 and 2 dof actuation boxes
+- /build_guide: PDF, timelapse, and annotated video of build process for release v1.2
 - /media: images from publication (in progress)
 
 ### Hand customisation
@@ -23,14 +24,16 @@ Additionally, the hand is designed to be uncomprimising with actuation. Five ten
 
 Figure 2: Hand parameters.
 
-In the current version, all bone lengths and joint diameters can be altered, as can: relative finger position, individual finger width, pulley size/strength, ligament size/strength and hand inward curvature. Possible to customise but requires code modification include: number of fingers/thumbs, individual bone width/pulley/ligament size and more.
+In the current version, all bone lengths, widths, and joint diameters can be altered, as can: relative finger position, pulley size/strength, ligament size/strength, and hand inward curvature. Possible to customise but requires code modification include: number of fingers/thumbs, individual pulley/ligament size and more.
 
 ## Fabrication instructions
 ### Hand assembly
 ![Steps for 3D printing and attaching tendons](/media/printing.png)
 Figure 3: Hand printing and assembly.
 
-Hands can be printed via commercial FDM printers (Prusa/Creality/Craftbot/Raise3D tested). General printing requirements are: large build volume and semi-flexible materials. Ideal hand properties with dual extrusion nylon filament and support material. Nylon printing is challenging for most printers, therefore **polypropylene** printing is recommended for good living hinge properties and relative ease of printing with a single extruder and standard temperatures. Print orientation is critical (palm should face down with fingertips closest to build plate and all ligament pairs flat relative to the build plate). Tree/organic support is recommended for easy removal around delicate ligaments. Minimal post-processing is needed to ensure pulleys are all clear of material.
+See [/build_guide](https://github.com/kg398/100_fingers/tree/main/build_guide) for more detailed fabrication tips and assembly information, and [bill of materials](#bill-of-materials) for basic acquisition requirements.
+
+Hands can be printed via commercial FDM printers (Prusa/Creality/Craftbot/Raise3D tested). General printing requirements are: large build volume and semi-flexible materials. **Polypropylene** printing is recommended for good living hinge properties and relative ease of printing with a single extruder and standard temperatures. Print orientation is critical (palm should face down with fingertips closest to build plate and all ligament pairs flat relative to the build plate).
 
 SLS printing is also suitable. Only polyamide (PA2200) has been tested, resulting in stiffer bones than polypropylene and a cleaner print. Orientation is less critical.
 
@@ -40,7 +43,7 @@ Figure 4: Tendon routing and actuation.
 
 Once the hand is printed, tendons must be routed manually. Depending on application, braided nylon from 0.2--0.5mm diameter is suitable (0.2mm is easier to work with and results in less friction, though has lower load potential). Tie with self-tightening knots to countersunk M2 bolts following routing from Figure 4.
 
-Actuation box is assembled as in Figure 4 with M2 and M3 bolts. All springs (passive tendon and active series elastic) should be approx 10--15mm free length and 0.06--0.87N/mm spring constant (alternatives possible but stronger springs need reinforced tendon paths). See publication (in progress) for example functional tendon routings.
+Actuation box is assembled as in Figure 4 with M2 and M3 bolts. All springs (passive tendon and active series elastic) should be approx 10--15mm free length and 0.06--1N/mm spring constant.
 
 ![Human hand design with double pulley actuation gif](/media/double_pulley_manual_handle.gif)
 
@@ -51,11 +54,8 @@ Manual handles allow testing of Bowden tube actuation and exploration of hand be
 ## In progress
 
 Look out for future updates on:
-- Detailed build guide/step-by-step instructions
 - Hand design database and modelling/behaviour guide
 - Parametric skin for printing/casting
-- Upcoming publications on design methodology and initial results
-
 
 ## Appendix
 ### Demos
@@ -101,3 +101,8 @@ Bill of materials for FDM printed human hand design with 1 dof actuation.
 | M4 nut, square |	Tendon anchor |	4 |
 | M5x25 caphead |	Lever shaft |	1 |
 
+
+### List of publications
+- (1) Gilday, K., Sirithunge, C., Iida, F., \& Hughes, J. (2025). Embodied manipulation with past and future morphologies through an open parametric hand design. Science Robotics, 10(102), eads6437. [/10.1126/scirobotics.ads6437](https://doi.org/10.1126/scirobotics.ads6437) (arxiv: [/10.48550/arXiv.2410.18633](https://doi.org/10.48550/arXiv.2410.18633))
+- (2) Carlet, R., Gilday, K., & Hughes, J. (2025, April). Behaviour Range Optimization of the Dexterous Robotic Open Parametric Hand. In 2025 IEEE 8th International Conference on Soft Robotics (RoboSoft) (pp. 1-7). IEEE. [/10.1109/RoboSoft63089.2025.11020976](https://doi.org/10.1109/RoboSoft63089.2025.11020976)
+- (3) Gilday, K., Pyeon, D., Dhanush, S., Cho, K. J., & Hughes, J. (2024). Exploiting passive behaviours for diverse musical playing using the parametric hand. Frontiers in Robotics and AI, 11, 1463744. [/10.3389/frobt.2024.1463744](https://doi.org/10.3389/frobt.2024.1463744)
