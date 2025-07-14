@@ -31,7 +31,7 @@ In the current version, all bone lengths, widths, and joint diameters can be alt
 ![Steps for 3D printing and attaching tendons](/media/printing.png)
 Figure 3: Hand printing and assembly.
 
-See [/build_guide](https://github.com/kg398/100_fingers/tree/main/build_guide) for more detailed fabrication tips and assembly information, and [bill of materials](#bill-of-materials) for basic acquisition requirements.
+See /build_guide for more detailed fabrication tips and assembly information, and [bill of materials](#bill-of-materials) for basic acquisition requirements.
 
 Hands can be printed via commercial FDM printers (Prusa/Creality/Craftbot/Raise3D tested). General printing requirements are: large build volume and semi-flexible materials. **Polypropylene** printing is recommended for good living hinge properties and relative ease of printing with a single extruder and standard temperatures. Print orientation is critical (palm should face down with fingertips closest to build plate and all ligament pairs flat relative to the build plate).
 
