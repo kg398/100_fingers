@@ -96,28 +96,28 @@ w_thumb = base_w_thumb*[[0.7, 1, 0.8, 0.7, 0.7]];
 
 
 //-----------------------------modular hand export------------------------//
-param1=0; //palm/digit type
-param2=0; //digit id
-//palm = 0;
-//finger = 1;
-//thumb = 2;
-//all = 3;
-//openscad.com -o "palm_test.stl" -D "param1=0" -D "param2=0" parameters.scad && 
-//openscad.com -o "finger0_test.stl" -D "param1=1" -D "param2=0" parameters.scad &&
-//openscad.com -o "thumb0_test.stl" -D "param1=2" -D "param2=0" parameters.scad &&
-
-echo(param1);
-echo(param2);
+//param1=3; //palm/digit type
+//param2=0; //digit id
+////palm = 0;
+////finger = 1;
+////thumb = 2;
+////all = 3;
+////openscad.com -o "palm_test.stl" -D "param1=0" -D "param2=0" parameters.scad && 
+////openscad.com -o "finger0_test.stl" -D "param1=1" -D "param2=0" parameters.scad &&
+////openscad.com -o "thumb0_test.stl" -D "param1=2" -D "param2=0" parameters.scad &&
+//
+//echo(param1);
+//echo(param2);
 
 //-----------basic verification that finger/thumb definitions exist-------//
 assert(len(type_finger)>=n_fingers && len(bl_finger)>=n_fingers && len(jd_finger)>=n_fingers && len(o_finger)>=n_fingers && len(a_finger)>=n_fingers && len(w_finger)>=n_fingers, "Must be parameters defined for each of n_fingers");
 assert(len(type_thumb)>=n_thumbs && len(bl_thumb)>=n_thumbs && len(jd_thumb)>=n_thumbs && len(o_thumb)>=n_thumbs && len(a_thumb)>=n_thumbs && len(w_thumb)>=n_thumbs, "Must be parameters defined for each of n_thumbs");
 //-----------------------------generate from params-----------------------//
 rotate([180,0,0]){
-//    hand();             // standard version for printing
+    hand();             // standard version for printing
 //    hand_nolig();       // non-print version only for visualisation
 //    single_finger();    // just generate index finger
-    hand_modular(model=param1,digit_id=param2);  // version where palm and fingers can be printed separately (model=all/palm/finger/thumb, digit_id=finger/thumb list index)
+//    hand_modular(model=param1,digit_id=param2);  // version where palm and fingers can be printed separately (model=all/palm/finger/thumb, digit_id=finger/thumb list index)
 }
     
 //---------------------------------camera setup---------------------------//
