@@ -5,6 +5,9 @@ Figure 1: Three example hands included in the initial release and presented in [
 
 Generating large numbers of anatomical parameterised fingers and hands with OpenSCAD (https://openscad.org/).
 
+## Changelog
+- 10/12/2025: Overhaul of parameter definitions and modular bone generation, see section: Hand Customisation
+
 ## Intro
 Code for generating the initial hand version and 3D files for reproduction and modular actuation.
 The hand is designed for single-piece 3d printing with consumer-grade printers, enabling rapid customisation and large-scale real-world experimentation.
@@ -24,8 +27,21 @@ Additionally, the hand is designed to be uncomprimising with actuation. Five ten
 
 Figure 2: Hand parameters.
 
-In the current version, all bone lengths, widths, and joint diameters can be altered, as can: relative finger position, pulley size/strength, ligament size/strength, and hand inward curvature. Possible to customise but requires code modification include: number of fingers/thumbs, individual pulley/ligament size and more.
+For basic customisation, parameters.scad can be modified to alter number of fingers/thumbs, predefined finger types (four_dof = anatomical, three_dof/two_dof = simplified examples), finger/thumb positions, orientations, curvature towards palm, all bone lengths/joint widths/diameters, pulley/ligament sizes.
 
+For custom digits/bones built on existing primitives (e.g. for different tendon routings/degrees of freedom/no. bones), new configurations can be created (see digits.scad for configuration details). For new features, e.g. expanded types of joints/nails/etc., configurations must be extended and features manually defined in primitives.scad/modular_bone.
+
+Parameters are separated into global and local. Three global params define number of fingers, number of thumbs and the overall hand curvature towards the palm (0 deg gives a flat hand all fingers in the same plane, 90 deg will keep fingers parallel as if wrapped around a cylinder).
+Local parameters are organised into lists separated by digits (fingers vs. thumbs) and parameter types:
+- finger_type: loads predefined finger configuration (four_dof = default anatomical finger). Must be at least 1 defined per n_fingers
+- lig_[digit]: ligament width and thickness. If fewer pairs are defined than n_fingers, only the first pair will be used for all of that digit type
+- p_[digit]: pulley length, internal radius, thickness. If fewer pairs are defined than n_fingers, only the first pair will be used for all of that digit type
+- bl_[digit]: n bone lengths per digit where n is number of bones in digit type config. First element is closest to the palm 
+- jd_[digit]: n+1 joint diameters per digit where n is number of bones in digit type config. First element is closest to the palm
+- w_[digit]: n+1 joint widths per digit where n is number of bones in digit type config. First element is closest to the palm
+- o_[digit]: 3 dof translation per digit. x = longitudinal (generally = 0), y = normal to palm, z = lateral to palm (main translation)
+- a_[digit]: 3 dof rotation per digit, rx = unused, ry = digit rotation in a_print/hand curvature axis (normal to palm when a_print = 0, longitudinal axis when a_print = 90), rz = unused
+  
 ## Fabrication instructions
 ### Hand assembly
 ![Steps for 3D printing and attaching tendons](/media/printing.png)
