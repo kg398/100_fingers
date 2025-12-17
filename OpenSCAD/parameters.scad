@@ -19,21 +19,21 @@ $fs = 1;  // Don't generate smaller facets than 0.1 mm
 $fa = 10;    // Don't generate larger angles than 3 degrees
 
 
-////--------------------------------Human_v2---------------------------------//
+//////--------------------------------Human_v2---------------------------------//
 /*[ Global Configurations ] */
 //Number of fingers (0--?)
 n_fingers = 4;
 // Number of thumbs (0--2)
-n_thumbs = 2;
+n_thumbs = 1;
 //Print angle/hand inward curvature
 a_print = 45;
 
 /*[ Finger Configuration ] */
 //Finger types
-type_finger = [three_dof,
-               two_dof,
+type_finger = [four_dof,
                four_dof,
-               two_dof];
+               four_dof,
+               four_dof];
 //Finger ligament width and thickness
 lig_finger = [[2.5,0.6]];
 //Finger pulley length, thickness and radius
@@ -91,6 +91,7 @@ a_thumb = [[0,-100,0],
 base_w_thumb = [[20],
                 [20]];
 w_thumb = base_w_thumb*[[0.7, 1, 0.8, 0.7, 0.7]];
+
 
 
 
