@@ -76,7 +76,7 @@ Look out for future updates on:
 ## Licensing
 
 - Code: General Public License v3.0 (GPLv3)
-- 3D assets: Creative Commons Attributation (CC BY 4.0)
+- 3D assets: Creative Commons Attribution (CC BY 4.0)
 
 See /LICENSE for details.
 
