@@ -73,6 +73,13 @@ Look out for future updates on:
 - Hand design database and modelling/behaviour guide
 - Parametric skin for printing/casting
 
+## Licensing
+
+- Code: General Public License v3.0 (GPLv3)
+- 3D assets: Creative Commons Attributation (CC BY 4.0)
+
+See /LICENSE for details.
+
 ## Appendix
 ### Demos
 ![Resting state to ready joint state by tensioning all tendons gif](/media/hand_tension.gif)
